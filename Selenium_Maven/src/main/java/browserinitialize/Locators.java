@@ -87,10 +87,15 @@ public class Locators extends Base{
 		
 	}
 	
+	public void xPathwithIndex() {
+		WebElement xPathwithIndex=driver.findElement(By.xpath("(//input[@value='Female'])[1]"));
+	}
+	
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 
+		
 	}
 
 }
