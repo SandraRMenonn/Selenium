@@ -1,5 +1,7 @@
 package browserinitialize;
 
+import java.time.Duration;
+
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.edge.EdgeDriver;
@@ -20,6 +22,7 @@ public class Base {
 		driver=new ChromeDriver(); //ChromeDriver, FireFoxDriver, SafariDriver etc. are child for the webDriver interface. Thus creating obj for required browser (child) to access its methods
 		driver.get("https://selenium.qabible.in/index.php");
 		driver.manage().window().maximize();
+		driver.manage().timeouts().implicitlyWait(Duration.ofMillis(20));//apply in all child classes -implicit wait
 	}
 	
 	public void browserClose() {

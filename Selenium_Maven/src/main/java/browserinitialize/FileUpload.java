@@ -4,8 +4,12 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
 import java.awt.datatransfer.StringSelection;
 import java.awt.event.KeyEvent;
+import java.time.Duration;
 import java.awt.Toolkit;
 import java.awt.Robot;
 import java.awt.AWTException;
@@ -26,6 +30,8 @@ public class FileUpload {
 		//chooseFile.click();
 		chooseFile.sendKeys("C:\\Users\\sandr\\Downloads\\notes (1).pdf");
 		WebElement uploadButton=driver.findElement(By.xpath("//input[@id='file-submit']"));
+		WebDriverWait wait=new WebDriverWait(driver, Duration.ofSeconds(10));//Explicit wait added
+		wait.until(ExpectedConditions.elementToBeClickable(uploadButton));
 		uploadButton.click();
 		driver.quit();
 	}
